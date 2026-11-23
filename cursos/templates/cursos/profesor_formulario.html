@@ -1,0 +1,27 @@
+{% extends 'cursos/base.html' %}
+
+{% block content %}
+<div class="container mt-4">
+    <h2>
+        {% if object %}
+            Editar profesor
+        {% else %}
+            Registrar profesor
+        {% endif %}
+    </h2>
+
+    <form method="POST">
+        {% csrf_token %}
+
+        {{ form.as_p }}
+
+        <button type="submit" class="btn btn-primary">
+            Guardar
+        </button>
+
+        <a href="{% url 'web_lista_profesores' %}" class="btn btn-secondary">
+            Cancelar
+        </a>
+    </form>
+</div>
+{% endblock %}
